@@ -162,3 +162,5 @@ https://blog.csdn.net/sinat_36053757/article/details/64444556
 
 ### 17.c++ newbie error C2512: no appropriate default constructor available，没有合适的默认构造函数可用
 构造函数重载，空的默认构造函数需要定义
+
+### 18. C++中public、protected、private的区别

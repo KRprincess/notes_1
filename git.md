@@ -43,3 +43,10 @@
   参考：<br>
        (1) https://blog.csdn.net/xmh594603296/article/details/83987271<br>
        (2)https://blog.csdn.net/xmh594603296/article/details/83987271<br>
+
+### 5. git stash, git restore, git tag的重要作用
+
+
+### 6.git rebase压缩commit
+
+
