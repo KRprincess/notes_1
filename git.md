@@ -50,3 +50,32 @@
 ### 6.git rebase压缩commit
 
 
+### 7. 撤销修改和误删除
+(1)撤销部分文件的修改
+git checkout -- path/to/file1 path/to/file2
+
+或者(git 2.23+)
+
+git restore --worktree path/to/file1 path/to/file2
+
+(2)撤销工作区下所有文件的修改（不包括新增文件）
+git checkout -- .
+
+或者(git 2.23+)
+
+git restore --worktree .
+
+(3)将一个或多个文件回滚到指定版本
+git checkout dce33f4 -- path/to/file1 path/to/file2
+
+(4)将一个或多个文件回滚到指定版本的前2个版本
+git checkout dce33f4 ~2 -- path/to/file1 path/to/file2
+
+(5)将一个或多个文件回滚到指定分支版本
+git checkout develop -- path/to/file1 path/to/file2
+
+(6)丢弃工作区中所有不受版本控制的文件或目录
+git clean -fdx
+
+作者：炉石不传说
+链接：https://www.jianshu.com/p/38921d19ba0a

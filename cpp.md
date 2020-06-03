@@ -164,3 +164,58 @@ https://blog.csdn.net/sinat_36053757/article/details/64444556
 构造函数重载，空的默认构造函数需要定义
 
 ### 18. C++中public、protected、private的区别
+
+### 19.宏的定义和使用
+- 我们在写代码时在什么情况下会使用宏
+- visual studio的工程属性宏;点击任意表单->edit->宏
+
+### 20.substr使用常见误区
+
+
+### 21.判断目录是否存在并创建
+```
+		//若目录savePath(string)不存在则创建
+		if (_access(savePath.c_str(), 0) == -1)//.c_str()将string转const char*
+		{
+			_mkdir(savePath.c_str());
+		}
+```
+注意：
+<br>`_access()`需包含头文件`#include<io.h>`
+<br>`_mkdir()`需包含头文件`#incldue<direct.h>`
+
+
+### 22.静态库（`.lib`）与动态库(`.lib和.dll`)
+https://www.cnblogs.com/hicjiajia/archive/2010/08/27/1809997.html
+
+### 23.回调函数
+https://www.zhihu.com/question/19801131
+
+你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的电话，过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取了货。在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函数，你到店里去取货叫做响应回调事件。回答完毕。
+
+### 24.虚函数与回调、事件机制的使用
+参考libevent
+<br>https://www.cnblogs.com/neooelric/p/9057381.html
+<br>http://senlinzhan.github.io/2017/08/12/libevent/
+<br>https://aceld.gitbooks.io/libevent/content/
+
+### 25.友元函数
+这些函数不是类的一部分，但又需要频繁地访问类的数据成员
+    <br>(1)友元函数是可以直接访问类的私有成员的非成员函数。它是定义在类外的普通函数，它不属于任何类，但需要在类的定义中加以声明，声明时只需在友元的名称前加上关键字friend，其格式如下：
+      <br> `friend 类型 函数名(形式参数);`
+       <br>(2)友元函数的声明可以放在类的私有部分，也可以放在公有部分，它们是没有区别的，都说明是该类的一个友元函数。
+      <br> (3)一个函数可以是多个类的友元函数，只需要在各个类中分别声明。
+       <br>(4)友元函数的调用与一般函数的调用方式和原理一致。
+
+<br>常用于运算符的重载
+<br>例如：`friend std::ostream& operator<<(std::ostream& os, DataObjectBase& object)；`
+
+原文链接：https://blog.csdn.net/fanyun_01/article/details/79122916
+
+### 26.boost注意事项
+boost库的版本需要与visual studio的相匹配，不然无法编译成功
+
+### 27.visual studio无法编译登陆的问题
+一般是代理问题，解决办法：
+设置-》网络和Internet-》代理-》自动设置代理-》自动设置脚本，设置为关
+<br>再次登陆即可

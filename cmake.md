@@ -210,7 +210,27 @@ endif()
 3. `CMAKE_CURRENT_SOURCE_DIR`:当前处理的 CMakeLists.txt 所在的路径
 
 
+### 16.`add_dependencies`
+对于编译时遇到的依赖问题，很多时候只需要一句target_link_libraries就可以搞定。<br>
+**但是`add_dependencies`什么时候用呢？**<br>
+一般来说用不到。<br>
+用到的情况就是两个targets有依赖关系（通过target_link_libraries解决）**并且依赖库也是通过编译源码产生的。这时候一句add_dependencies可以在直接编译上层target时，自动检查下层依赖库是否已经生成。没有的话先编译下层依赖库，然后再编译上层target，最后link depend target。
+。**
+例如：
+```
+add_executable(ColorToolsTests ${DIR_COLORTOOLS_SRCS})
+add_dependencies(ColorToolsTests ColorTools)
+target_link_libraries(ColorToolsTests gtestd.lib)
 
+```
+### 17.cmake指定visual studio版本
+```
+cmake .. -G "Visual Studio 14 2015"
+cmake .. -G "Visual Studio 9 2008"
+```
+### 18.cmake好用的路径变量
+`PROJECT_SOURCE_DIR`: 最近的含有`project()`的`CMakeLists.txt`的路径
+<br>`CMAKE_CURRENT_SOURCE_DIR`:当前`CMakeLists.txt`的路径
 
 ### 注意事项
 1. 多个目录，多个源文件：一种直接的处理方式，分别在项目根目录和各子目录分别编写一个 CMakeLists.txt 文件 

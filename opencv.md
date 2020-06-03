@@ -37,6 +37,8 @@ writer.release();
 ...
 ```
 
-## 4.将homographyMat转化为mapX,mapY供remap使用时注意事项
+### 4.将homographyMat转化为mapX,mapY供remap使用时注意事项
 - remap中使用的mapX和mapY表示dst图像上对应在src上的坐标（目标点到源点的映射）
 - warpPerspective使用的homography是源到目标的映射，与remap正好相反
+
+### 5.opencv二维码检测器（`cv::QRCodeDetector`)对于宽高比相差较大时，检测不出来
