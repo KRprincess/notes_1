@@ -106,7 +106,7 @@ install(FILES ${INCFiles}
        DESTINATION include/${PROJECT_NAME})
 ```
 
-### 7.复制指定文件到指定目录
+### 7.在编译时copy文件
 - 方式1  add_custom_command
 ```
 # copy 3rdparty dynamic library to /bin 
@@ -120,6 +120,18 @@ if(WIN32)
        $<TARGET_FILE_DIR:test_kalman_tracking>)
 endif()
 ```
+
+'''
+add_custom_command(
+    # 指令依附的目標
+    TARGET main
+    # 自訂指令的執行時機
+    POST_BUILD
+    # COMMAND關鍵字後為執行指令
+    COMMAND
+        ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/shaders/** $<TARGET_FILE_DIR:main>
+)
+'''
 
 ### 8. 编译依赖：即编译文件A需要先编译文件B
 在CMakeLIsts.txt文件中，添加
